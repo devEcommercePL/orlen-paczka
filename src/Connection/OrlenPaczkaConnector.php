@@ -10,10 +10,7 @@ class OrlenPaczkaConnector {
 
     private $client;
     private $wsdl = 'https://api.orlenpaczka.pl/WebServicePwRProd/WebServicePwR.asmx';
-    private $xmlns = 'https://91.242.220.103/WebServicePwR';
-    private $SOAPAction = 'https://91.242.220.103/WebServicePwR/[METHOD_NAME]';
     private $Auth;
-    private $authRequired = false;
     private $wsdlSuffix = '';
     public $response = null;
 
@@ -54,8 +51,7 @@ class OrlenPaczkaConnector {
         $contentLength = strlen($xmlBody);
         $headers = [
             'Content-Type' => 'text/xml; charset=utf-8',
-            'Content-Length' => $contentLength,
-            'SOAPAction' => str_replace('[METHOD_NAME]', class_basename($this), $this->SOAPAction)
+            'Content-Length' => $contentLength
         ];
 
         $this->client = new Client([
@@ -93,14 +89,6 @@ class OrlenPaczkaConnector {
         }
     }
 
-    /**
-     * Get xmlns
-     *
-     * @return string
-     */
-    public function getXmlns() {
-        return $this->xmlns;
-    }
 
     /**
      * Send request to OrlenPaczka API
