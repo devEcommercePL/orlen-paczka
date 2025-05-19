@@ -1,0 +1,15 @@
+{
+    "name": "devecommercepl/orlen-paczka",
+    "type": "library",
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ext-soap": "*",
+        "illuminate/support": "^8.0 || ^9.0 || ^10.0 || ^11.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "DevEcommercePL\\OrlenPaczka\\": "src/"
+        }
+    }
+}
